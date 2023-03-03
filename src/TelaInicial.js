@@ -1,12 +1,20 @@
 import styled from "styled-components"
 import logo from "./assets/logo.png" 
 
-export default function TelaInicial(){
-    return(
+export default function TelaInicial(props){
+      function Inicio(){
+            {props.setEsconder("none")}
+            {props.setAparecer("")}
+      }
+    
+    
+      return(
         <Background>
-            <Imagem src={logo} alt="logo"/>
-            <Titulo>ZapRecall</Titulo>
-            <Button>Iniciar!</Button>
+            <Container>
+              <Imagem src={logo} alt="logo"/>
+              <Titulo>ZapRecall</Titulo>
+              <Button onClick={Inicio}>Iniciar!</Button>
+            </Container>
         </Background>
     )
 }
@@ -14,6 +22,9 @@ export default function TelaInicial(){
 const Background= styled.div`
       background: #FB6B6B;
       justify-content:center;
+      align-tems: center;
+      margin: 0 auto;
+      display: ${props => props.esconder};
       `;
 
 const Imagem = styled.img`
@@ -54,6 +65,13 @@ const Button= styled.button`
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
       margin-bottom: 202px;
       `;
+
+const Container=styled.div`
+align-tems: center;
+justify-content: center;
+ margin: 0 auto;`;
+
+
 
 
       

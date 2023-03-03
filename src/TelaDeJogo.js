@@ -8,8 +8,8 @@ export default function GameScreen(){
             <Container>
                 <Imagem src={logo} alt="logo"/>
                 <GameTitle>ZapRecall</GameTitle>
-                <Caixas/>
             </Container>
+            <Caixas/>
         </Background>
     )
 
@@ -20,11 +20,16 @@ const Background= styled.div`
   background: #FB6B6B;
   align-tems: center;
   justify-content: center;
+  margin: 0 auto;
+  display: ${props => props.aparecer};
       `;
 
 const Container=styled.div`
      display: flex;
-     flex-direction: row;`;
+     flex-direction: row;
+     align-tems: center;
+     justify-content: center;
+     margin: 0 auto;`;
 
 const Imagem=styled.img`
 width: 52px;
