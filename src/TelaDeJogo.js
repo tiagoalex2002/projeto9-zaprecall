@@ -1,15 +1,17 @@
 import styled from "styled-components"
 import logo from "./assets/logo.png"
 import Caixas from "./CaixaDePerguntas";
+import Footer from "./Footer";
 
-export default function GameScreen(){
+export default function GameScreen(props){
     return(
-        <Background>
+        <Background aparecer={props.aparecer}>
             <Container>
                 <Imagem src={logo} alt="logo"/>
                 <GameTitle>ZapRecall</GameTitle>
             </Container>
-            <Caixas/>
+            <Caixas play={props.play} setPlay={props.setPlay} flashclicado={props.flashclicado} setFlashclicado={props.setFlashclicado}/>
+            <Footer contagem={props.contagem}/>
         </Background>
     )
 

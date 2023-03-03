@@ -9,7 +9,7 @@ export default function TelaInicial(props){
     
     
       return(
-        <Background>
+        <Background esconder={props.esconder}>
             <Container>
               <Imagem src={logo} alt="logo"/>
               <Titulo>ZapRecall</Titulo>
