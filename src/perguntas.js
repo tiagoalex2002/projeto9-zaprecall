@@ -6,9 +6,9 @@ export default function Perguntas(props){
     let answer= cards[props.numero-1].answer
     return(
        <div>
-         <Enunciado>Pergunta {props.numero}</Enunciado>
-         <Questao>{question}</Questao>
-         <Resposta>{answer}</Resposta>
+         <Enunciado indicador1={props.indicador1}>Pergunta {props.numero}</Enunciado>
+         <Questao indicador1={props.indicador1}>{question}</Questao>
+         <Resposta indicador2={props.indicador2}>{answer}</Resposta>
         
        </div>
 
@@ -16,10 +16,10 @@ export default function Perguntas(props){
 }
 
 const Enunciado=styled.div `
-display: ${props => props.play ? "none":""}`;
+      display: ${props => props.indicador1? "none":""}`;
 
 const Questao=styled.div `
-display: ${props => props.play ? "" : "none"}`
+display: ${props => props.indicador1 ? "" : "none"}`
 
 const Resposta= styled.div `
-display: ${props => props.flip ? "":"none"}`
+display: ${props => props.indicador2 ? "":"none"}`

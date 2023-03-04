@@ -10,7 +10,7 @@ export default function GameScreen(props){
                 <Imagem src={logo} alt="logo"/>
                 <GameTitle>ZapRecall</GameTitle>
             </Container>
-            <Caixas play={props.play} setPlay={props.setPlay} flashclicado={props.flashclicado} setFlashclicado={props.setFlashclicado}/>
+            <Caixas play={props.play} setPlay={props.setPlay} flashclicado={props.flashclicado} setFlashclicado={props.setFlashclicado} flip={props.flip} setFlip={props.setFlip} flipclicado={props.flipclicado} setFlipclicado={props.setFlipclicado}/>
             <Footer contagem={props.contagem}/>
         </Background>
     )

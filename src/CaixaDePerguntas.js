@@ -4,20 +4,26 @@ import seta from "./assets/seta_play.png"
 import flip from "./assets/seta_virar.png"
 import Perguntas from "./perguntas";
 import cards from "./deck";
+import { useState } from "react";
 
 export default function Caixas(props){
+
     function Play(index){
-        {props.setFlashclicado([...props.flashclicado,index])}
-        if(props.play == false){
-            {props.setPlay(true)}
+        if(props.flashclicado.includes(index)){
+           {props.setFlipclicado([...props.flipclicado,index])}
+           {props.setFlip(true)}
         }
         else{
-            {props.setFlip(true)}
+            {props.setFlashclicado([...props.flashclicado,index])}
+            {props.setPlay(true)}
         }
+        console.log(props.flashclicado)
+        console.log(props.flipclicado)
+        
     }
     return(
-        <div>{numeros.map((i) => <Box data-test="flashcard"><Perguntas numero={i}/>
-            <Icon onClick={() =>Play(i-1)}><img src={props.play && props.flashclicado.includes(i-1) ? flip : seta} alt="seta"/></Icon></Box>)}</div>
+        <div>{numeros.map((i) => <Box data-test="flashcard"><Perguntas indicador1={props.play && props.flashclicado.includes(i)? true : false}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} numero={i}/>
+            <Icon onClick={() =>Play(i)}><img src={props.play && props.flashclicado.includes(i) ? flip : seta} alt="seta"/></Icon></Box>)}</div>
     )
 }
 

@@ -9,11 +9,13 @@ export default function App(){
     const [play,setPlay] = useState(false)
     const [flip,setFlip] = useState(false)
     const [flashclicado, setFlashclicado]= useState([])
+    const [flipclicado, setFlipclicado] = useState([])
     return(
         <div>
             <TelaInicial esconder={esconder} setEsconder={setEsconder} aparecer={aparecer} setAparecer={setAparecer}/>
             <GameScreen aparecer={aparecer} setAparecer={setAparecer} contagem={contagem} setContagem={setContagem}
-            play={play} setPlay={setPlay} flip={flip} setFlip={setFlip} flashclicado={flashclicado} setFlashclicado={setFlashclicado}/>
+            play={play} setPlay={setPlay} flip={flip} setFlip={setFlip} flashclicado={flashclicado} setFlashclicado={setFlashclicado} 
+            flipclicado={flipclicado} setFlipclicado={setFlipclicado}/>
         </div>
     )
 }
