@@ -7,7 +7,7 @@ export default function Perguntas(props){
     return(
        <div>
          <Enunciado indicador1={props.indicador1}>Pergunta {props.numero}</Enunciado>
-         <Questao indicador1={props.indicador1}>{question}</Questao>
+         <Questao indicador1={props.indicador1} indicador2={props.indicador2}>{question}</Questao>
          <Resposta indicador2={props.indicador2}>{answer}</Resposta>
         
        </div>
@@ -19,7 +19,7 @@ const Enunciado=styled.div `
       display: ${props => props.indicador1? "none":""}`;
 
 const Questao=styled.div `
-display: ${props => props.indicador1 ? "" : "none"}`
+display: ${props => props.indicador1 ? (props.indicador2? "none":""): "none"}`
 
 const Resposta= styled.div `
 display: ${props => props.indicador2 ? "":"none"}`
