@@ -21,9 +21,6 @@ export default function TelaInicial(props){
 
 const Background= styled.div`
       background: #FB6B6B;
-      justify-content:center;
-      align-tems: center;
-      margin: 0 auto;
       display: ${props => props.esconder};
       `;
 
@@ -46,7 +43,6 @@ const Titulo=styled.div`
       text-align: center;
       letter-spacing: -0.012em;
       color: #FFFFFF;
-      margin-left: 13px;
       `;
 
 const Button= styled.button`
@@ -64,12 +60,13 @@ const Button= styled.button`
       border: 1px solid #D70900;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
       margin-bottom: 202px;
+      margin-top: 30px;
       `;
 
 const Container=styled.div`
-align-tems: center;
-justify-content: center;
- margin: 0 auto;`;
+ width: 100%;
+ height:100%;
+ justify-content: center`;
 
 
 
