@@ -3,6 +3,9 @@ import styled from "styled-components";
 import seta from "./assets/seta_play.png"
 import flip from "./assets/seta_virar.png"
 import Perguntas from "./perguntas";
+import certo from "./assets/icone_certo.png"
+import erro from "./assets/icone_erro.png"
+import quase from "./assets/icone_quase.png"
 import cards from "./deck";
 import { useState } from "react";
 
@@ -34,7 +37,8 @@ export default function Caixas(props){
     return(
         <div>{numeros.map((i) => <Box finalizado={props.finalizado} indicador1={props.play && props.flashclicado.includes(i)? true : false} indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} flipclicado={props.flipclicado} numero={i} data-test="flashcard"><Perguntas indicador1={props.play && props.flashclicado.includes(i)? true : false}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} cores={props.cores} flipclicado={props.flipclicado} flashclicado={props.flashclicado} 
         finalizado={props.finalizado} setFinalizado={props.setFinalizado} numero={i}/>
-            <Icon  indicador2={props.flip && props.flipclicado.includes(i)? true : false} onClick={() =>Play(i)}><img src={props.play && props.flashclicado.includes(i) ? flip : seta} alt="seta"/></Icon>
+            <Icon indicador2={props.flip && props.flipclicado.includes(i)? true : false} onClick={() =>Play(i)}><img src={props.play && props.flashclicado.includes(i) ? flip : seta} alt="seta"/></Icon>
+            <FinalIcon cores={props.cores} finalizado={props.finalizado} numero={i}><img src={props.cores[i-1] === "#2FBE34" ? certo : (props.cores[i-1] === "#FF922E" ? quase : erro)} alt="logo"/></FinalIcon>
             <Div finalizado={props.finalizado} flipclicado={props.flipclicado} numero={i}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection}><Red onClick={()=> Selecao(i,"#FF3030")}>Não lembrei!</Red><Orange onClick={() => Selecao(i,"#FF922E")}>Quase não lembrei</Orange><Green onClick={() => Selecao(i,"#2FBE34")}>Zap!</Green></Div></Box>)}</div>)
 }
 
@@ -46,7 +50,7 @@ background: ${props => props.indicador1? (props.selection && props.flipclicado.i
 box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
 border-radius: 5px;
 margin-top:25px;
-display:${props => props.indicador2? "" : "flex"};
+display:${props => props.indicador2? (props.finalizado.includes(props.numero)? "flex" : ""): "flex"};
 flex-direction: row`;
 
 const Icon=styled.button `
@@ -113,3 +117,10 @@ text-align: center;
 
 color: #FFFFFF;
 `;
+
+const FinalIcon=styled.div`
+width: 23px;
+height: 23px;
+margin-left:160px;
+display: ${props => props.finalizado.includes(props.numero)? "" : "none"}
+`
