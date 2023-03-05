@@ -39,7 +39,7 @@ export default function Caixas(props){
         finalizado={props.finalizado} setFinalizado={props.setFinalizado} numero={i}/>
             <Icon data-test={props.play && props.flashclicado.includes(i) ? "turn-btn" : "play-btn"} indicador2={props.flip && props.flipclicado.includes(i)? true : false} onClick={() =>Play(i)}><img src={props.play && props.flashclicado.includes(i) ? flip : seta} alt="seta"/></Icon>
             <FinalIcon cores={props.cores} finalizado={props.finalizado} numero={i}><img src={props.cores[i-1] === "#2FBE34" ? certo : (props.cores[i-1] === "#FF922E" ? quase : erro)} alt="logo"/></FinalIcon>
-            <Div finalizado={props.finalizado} flipclicado={props.flipclicado} numero={i}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection}><Red onClick={()=> Selecao(i,"#FF3030")}>Não lembrei!</Red><Orange onClick={() => Selecao(i,"#FF922E")}>Quase não lembrei</Orange><Green onClick={() => Selecao(i,"#2FBE34")}>Zap!</Green></Div></Box>)}</div>)
+            <Div finalizado={props.finalizado} flipclicado={props.flipclicado} numero={i}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection}><Red data-test="no-btn" onClick={()=> Selecao(i,"#FF3030")}>Não lembrei!</Red><Orange data-test="partial-btn" onClick={() => Selecao(i,"#FF922E")}>Quase não lembrei</Orange><Green data-test="zap-btn" onClick={() => Selecao(i,"#2FBE34")}>Zap!</Green></Div></Box>)}</div>)
 }
 
 const Box=styled.div `
