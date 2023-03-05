@@ -6,9 +6,9 @@ export default function Perguntas(props){
     let answer= cards[props.numero-1].answer
     return(
        <div>
-         <Enunciado finalizado={props.finalizado} numero={props.numero} flipclicado={props.flipclicado} indicador1={props.indicador1} cores={props.cores} selection={props.selection} indicador2={props.indicador2}>Pergunta {props.numero}</Enunciado>
-         <Questao indicador1={props.indicador1} indicador2={props.indicador2}>{question}</Questao>
-         <Resposta finalizado={props.finalizado}flashclicado={props.flashclicado} numero={props.numero} flipclicado={props.flipclicado} indicador2={props.indicador2} selection={props.selection}>{answer}</Resposta>
+         <Enunciado data-test="flashcard-text"finalizado={props.finalizado} numero={props.numero} flipclicado={props.flipclicado} indicador1={props.indicador1} cores={props.cores} selection={props.selection} indicador2={props.indicador2}>Pergunta {props.numero}</Enunciado>
+         <Questao data-test="flashcard-text" indicador1={props.indicador1} indicador2={props.indicador2}>{question}</Questao>
+         <Resposta data-test="flashcard-text" finalizado={props.finalizado}flashclicado={props.flashclicado} numero={props.numero} flipclicado={props.flipclicado} indicador2={props.indicador2} selection={props.selection}>{answer}</Resposta>
         
        </div>
 
