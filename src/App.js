@@ -12,15 +12,17 @@ export default function App(){
     const [flashclicado, setFlashclicado]= useState([])
     const [flipclicado, setFlipclicado] = useState([])
     const [selection,setSelection]= useState(false)
-    const [cor,setCor]= useState("")
+    const [cores,setCores]= useState([])
+    const [finalizado,setFinalizado]=useState([])
     return(
         <ContainerPrincipal>
             <TelaInicial esconder={esconder} setEsconder={setEsconder} aparecer={aparecer} setAparecer={setAparecer}/>
             <GameScreen aparecer={aparecer} setAparecer={setAparecer} contagem={contagem} setContagem={setContagem}
             play={play} setPlay={setPlay} flip={flip} setFlip={setFlip} 
             flashclicado={flashclicado} setFlashclicado={setFlashclicado} 
-            flipclicado={flipclicado} setFlipclicado={setFlipclicado} cor={cor} setCor={setCor}
-            selection={selection} setSelection={setSelection}/>
+            flipclicado={flipclicado} setFlipclicado={setFlipclicado} cores={cores} setCores={setCores}
+            selection={selection} setSelection={setSelection}
+            finalizado={finalizado} setFinalizado={setFinalizado}/>
         </ContainerPrincipal>
     )
 }

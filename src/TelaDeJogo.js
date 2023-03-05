@@ -11,8 +11,9 @@ export default function GameScreen(props){
                 <GameTitle>ZapRecall</GameTitle>
             </Container>
             <Caixas data-test="flashcard" play={props.play} setPlay={props.setPlay} flashclicado={props.flashclicado} setFlashclicado={props.setFlashclicado} flip={props.flip} setFlip={props.setFlip} flipclicado={props.flipclicado} setFlipclicado={props.setFlipclicado}
-            cor={props.cor} setCor={props.setCor} selection={props.selection} setSelection={props.setSelection} contagem={props.contagem} setContagem={props.setContagem}/>
-            <Footer contagem={props.contagem}/>
+            cores={props.cores} setCores={props.setCores} selection={props.selection} setSelection={props.setSelection} contagem={props.contagem} setContagem={props.setContagem}
+            finalizado={props.finalizado} setFinalizado={props.setFinalizado}/>
+            <Footer contagem={props.contagem} />
         </Background>
     )
 

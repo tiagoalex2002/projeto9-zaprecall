@@ -22,23 +22,27 @@ export default function Caixas(props){
         
     }
 
-    function Selecao(colour){
+    function Selecao(index,colour){
+        {props.setFinalizado([...props.finalizado,index])}
         {props.setSelection(true)};
-        {props.setCor(colour)}
-        {props.setContagem(+1)}
+        {props.setCores([...props.cores,colour])}
+        let cont= props.contagem
+        {props.setContagem(cont+1)}
+        console.log(props.cores)
 
     }
     return(
-        <div>{numeros.map((i) => <Box indicador1={props.play && props.flashclicado.includes(i)? true : false} indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} data-test="flashcard"><Perguntas indicador1={props.play && props.flashclicado.includes(i)? true : false}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} cor={props.cor} numero={i}/>
+        <div>{numeros.map((i) => <Box finalizado={props.finalizado} indicador1={props.play && props.flashclicado.includes(i)? true : false} indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} flipclicado={props.flipclicado} numero={i} data-test="flashcard"><Perguntas indicador1={props.play && props.flashclicado.includes(i)? true : false}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} cores={props.cores} flipclicado={props.flipclicado} flashclicado={props.flashclicado} 
+        finalizado={props.finalizado} setFinalizado={props.setFinalizado} numero={i}/>
             <Icon  indicador2={props.flip && props.flipclicado.includes(i)? true : false} onClick={() =>Play(i)}><img src={props.play && props.flashclicado.includes(i) ? flip : seta} alt="seta"/></Icon>
-            <Div indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection}><Red onClick={()=> Selecao("#FF3030")}>Não lembrei!</Red><Orange onClick={() => Selecao("#FF922E")}>Quase não lembrei</Orange><Green onClick={() => Selecao("#2FBE34")}>Zap!</Green></Div></Box>)}</div>)
+            <Div finalizado={props.finalizado} flipclicado={props.flipclicado} numero={i}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection}><Red onClick={()=> Selecao(i,"#FF3030")}>Não lembrei!</Red><Orange onClick={() => Selecao(i,"#FF922E")}>Quase não lembrei</Orange><Green onClick={() => Selecao(i,"#2FBE34")}>Zap!</Green></Div></Box>)}</div>)
 }
 
 const Box=styled.div `
 width: 300px;
-height: ${props => props.indicador1? (props.selection ? "65px" : "131px") : "65px"};
+height: ${props => props.indicador1? (props.selection && props.flipclicado.includes(props.numero)? (props.finalizado.includes(props.numero)? "65px":"131px") : "131px") : "65px"};
 
-background: ${props => props.indicador1? (props.selection? "#FFFFFF": "#FFFFD5"):"#FFFFFF"};
+background: ${props => props.indicador1? (props.selection && props.flipclicado.includes(props.numero)? (props.finalizado.includes(props.numero)?"#FFFFFF": "#FFFFD5" ): "#FFFFD5"):"#FFFFFF"};
 box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
 border-radius: 5px;
 margin-top:25px;
@@ -55,7 +59,7 @@ display: ${props => props.indicador2? "none" : ""}`
 const Div=styled.div `
 display:flex;
 flex-direction:row;
-display: ${props => props.indicador2? (props.selection ? "none":""): "none"}`;
+display: ${props => props.indicador2? (props.selection && props.flipclicado.includes(props.numero) ? (props.finalizado.includes(props.numero)? "none":""):""): "none"}`;
 
 const Red=styled.button `
 width: 85.17px;
