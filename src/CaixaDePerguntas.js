@@ -35,9 +35,9 @@ export default function Caixas(props){
 
     }
     return(
-        <div>{numeros.map((i) => <Box finalizado={props.finalizado} indicador1={props.play && props.flashclicado.includes(i)? true : false} indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} flipclicado={props.flipclicado} numero={i} data-test="flashcard"><Perguntas indicador1={props.play && props.flashclicado.includes(i)? true : false}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} cores={props.cores} flipclicado={props.flipclicado} flashclicado={props.flashclicado} 
+        <div>{numeros.map((i) => <Box finalizado={props.finalizado} indicador1={props.play && props.flashclicado.includes(i)? true : false} indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} flipclicado={props.flipclicado} numero={i} data-test="flashcard"><Perguntas data-test="flashcard-text" indicador1={props.play && props.flashclicado.includes(i)? true : false}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection} cores={props.cores} flipclicado={props.flipclicado} flashclicado={props.flashclicado} 
         finalizado={props.finalizado} setFinalizado={props.setFinalizado} numero={i}/>
-            <Icon indicador2={props.flip && props.flipclicado.includes(i)? true : false} onClick={() =>Play(i)}><img src={props.play && props.flashclicado.includes(i) ? flip : seta} alt="seta"/></Icon>
+            <Icon data-test="play-btn" indicador2={props.flip && props.flipclicado.includes(i)? true : false} onClick={() =>Play(i)}><img src={props.play && props.flashclicado.includes(i) ? flip : seta} alt="seta"/></Icon>
             <FinalIcon cores={props.cores} finalizado={props.finalizado} numero={i}><img src={props.cores[i-1] === "#2FBE34" ? certo : (props.cores[i-1] === "#FF922E" ? quase : erro)} alt="logo"/></FinalIcon>
             <Div finalizado={props.finalizado} flipclicado={props.flipclicado} numero={i}  indicador2={props.flip && props.flipclicado.includes(i)? true : false} selection={props.selection}><Red onClick={()=> Selecao(i,"#FF3030")}>Não lembrei!</Red><Orange onClick={() => Selecao(i,"#FF922E")}>Quase não lembrei</Orange><Green onClick={() => Selecao(i,"#2FBE34")}>Zap!</Green></Div></Box>)}</div>)
 }
