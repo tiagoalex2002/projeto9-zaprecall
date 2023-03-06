@@ -63,7 +63,9 @@ display: ${props => props.indicador2? "none" : ""}`
 const Div=styled.div `
 display:flex;
 flex-direction:row;
-display: ${props => props.indicador2? (props.selection && props.flipclicado.includes(props.numero) ? (props.finalizado.includes(props.numero)? "none":""):""): "none"}`;
+display: ${props => props.indicador2? (props.selection && props.flipclicado.includes(props.numero) ? (props.finalizado.includes(props.numero)? "none":""):""): "none"};
+margin-top:30px;
+margin-left:20px;`;
 
 const Red=styled.button `
 width: 85.17px;
@@ -123,4 +125,4 @@ width: 23px;
 height: 23px;
 margin-left:160px;
 display: ${props => props.finalizado.includes(props.numero)? "" : "none"}
-`
+`;

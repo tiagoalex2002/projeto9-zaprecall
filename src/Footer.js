@@ -21,5 +21,6 @@ color: #333333;
 justify-content: center;
 display:flex;
 padding-top: 30px;
+position: absolute;
 
 `;

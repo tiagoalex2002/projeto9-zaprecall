@@ -43,6 +43,8 @@ const Titulo=styled.div`
       text-align: center;
       letter-spacing: -0.012em;
       color: #FFFFFF;
+      margin-left:80px;
+      margin-top:30px;
       `;
 
 const Button= styled.button`
@@ -66,7 +68,9 @@ const Button= styled.button`
 const Container=styled.div`
  width: 100%;
  height:100%;
- justify-content: center`;
+ display:flex;
+ flex-direction: column;
+ align-items:center;`;
 
 
 

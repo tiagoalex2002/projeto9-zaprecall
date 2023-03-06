@@ -23,10 +23,27 @@ const Enunciado=styled.div `
       font-size: 16px;
       line-height: 19px;
       text-decoration-line: ${props => props.selection && props.indicador2? "line-through" : "" };
-      color: ${props => props.selection && props.indicador2? (props.selection && props.finalizado.includes(props.numero)? props.cores[props.numero-1] :" #333333" ) : " #333333"}`;
+      color: ${props => props.selection && props.indicador2? (props.selection && props.finalizado.includes(props.numero)? props.cores[props.numero-1] :" #333333" ) : " #333333"}
+      `;
 
 const Questao=styled.div `
-display: ${props => props.indicador1 ? (props.indicador2? "none":""): "none"}`
+display: ${props => props.indicador1 ? (props.indicador2? "none":""): "none"};
+font-family: 'Recursive';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+color: #333333;
+margin-left:15px;`;
 
 const Resposta= styled.div `
-display: ${props => props.indicador2 ? (props.selection && props.finalizado.includes(props.numero)? "none":""):"none"}`
+display: ${props => props.indicador2 ? (props.selection && props.finalizado.includes(props.numero)? "none":""):"none"};
+font-family: 'Recursive';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+color: #333333;
+margin-left:15px;
+
+`;
