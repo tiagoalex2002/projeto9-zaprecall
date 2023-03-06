@@ -33,8 +33,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 18px;
 line-height: 22px;
-color: #333333;
-margin-left:15px;`;
+color: #333333;`;
 
 const Resposta= styled.div `
 display: ${props => props.indicador2 ? (props.selection && props.finalizado.includes(props.numero)? "none":""):"none"};
@@ -44,6 +43,5 @@ font-weight: 400;
 font-size: 18px;
 line-height: 22px;
 color: #333333;
-margin-left:15px;
 
 `;
